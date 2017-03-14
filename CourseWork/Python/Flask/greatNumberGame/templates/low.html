@@ -1,0 +1,23 @@
+<html>
+    <head>
+       <title>Counter</title>
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/low.css') }}">
+    </head>
+    <body>
+		<div id="center">
+			<h1>Welcome to the Great Number Game</h1>
+			<p>I am thinking of a number between 1 and 100</p><br>
+			<p>Take a guess!</p>
+		</div>
+		<div id="centerDiv">
+			<p>Too low!</p>
+		</div>
+		<div id="centerForm">
+			<form  action='/data' method='post'>
+			<input type="text" name="Guess">
+			<br>
+			<input type="submit" name="name" value='Submit'>
+			</form>
+		</div>
+    </body>
+</html>

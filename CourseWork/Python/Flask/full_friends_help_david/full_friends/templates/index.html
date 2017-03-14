@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>Friends</title>
+</head>
+<body>
+
+  <h1>Add a friend here:</h1>
+  <form action='/friends' method='POST'>
+    <label for="first">First name:<input type="text" name="first" id="firstid"></label>
+    <label for="last">Last name:<input type="text" name="last" id="lastid"></label>
+    <label for="age">Age:<input type="text" name="age" id="ageid"></label>
+    <input type="submit" value="Add">
+  </form>
+
+<h1>These are your friends!! </h1>
+  {% for friend_id in makeupname: %}  
+    <p>First name: {{friend_id['first_name']}}</p>
+    <p>Last name: {{friend_id['last_name']}}</p>
+    <p>AGE: {{friend_id['age']}}</p>
+    <p>Time: {{friend_id['updated_at']}}</p>
+        
+    <form action="/friends/{{friend_id['id']}}/edit" method='POST'>
+    <input type="submit" value="Edit friend info">
+    </form>
+    <form action="/friends/{{friend_id['id']}}/delete" method='POST'>
+    <input type="submit" value="Delete">
+    </form>
+    <hr>
+    {% endfor %}
+
+</body>
+</html>

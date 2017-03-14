@@ -1,0 +1,60 @@
+div{
+  text-align: center;
+}
+p{
+  font-weight: bold;
+  font-size: 20px;
+}
+#content{
+
+}
+#gold{
+
+}
+#moneyMaker{
+
+}
+form > p{
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+#sub{
+  height: 45px;
+  width: 150px;
+}
+#square1{
+  display: inline-block;
+  display: inline-block;
+  height: 375px;
+  width: 375px;
+  border: 5px solid black;
+  margin: 20px;
+}
+#square2{
+  display: inline-block;
+  height: 375px;
+  width: 375px;
+  border: 5px solid black;
+  margin: 20px;
+}
+#square3{
+  display: inline-block;
+  height: 375px;
+  width: 375px;
+  border: 5px solid black;
+  margin: 20px;
+}
+#square4{
+  display: inline-block;
+  height: 375px;
+  width: 375px;
+  border: 5px solid black;
+  margin: 20px;
+}
+#Footer{
+
+}
+#ta{
+  height: 200px;
+  width: 1700px;
+}

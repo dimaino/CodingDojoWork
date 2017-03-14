@@ -1,0 +1,23 @@
+1.) Open Git Bash(Windows)
+2.) ls
+3.) cd Desktop
+4.) mkdir test
+5.) cd test
+6.) touch index.html
+7.) touch styles.css
+8.) aboutMe.txt
+9.) git init
+10.) git status
+11.) git add aboutMe.txt
+12.) git status
+13.) git commit -m "this is a comment all about how I made my initial commit"
+14.) git add aboutMe.txt
+15.) git commit -m "updated aboutMe"
+16.) git add aboutMe.txt
+17.) git commit -m "uadded favorite moive to aboutMe"
+18.) git log or get diff --stat
+19.) git revert -n HEAD
+20.) git add aboutMe.txt
+21.) git revert -n 8527dd8bbddb69058a561c3bd538c4d5d808e4cb
+22.) git reset --hard HEAD^
+23.) git log (just to see the last hit was gone)

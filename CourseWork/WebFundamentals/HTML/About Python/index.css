@@ -1,0 +1,118 @@
+*{
+  vertical-align: baseline;
+  font-weight: inherit;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: inherit;
+  font-size: 100%;
+  border: 0 none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+}
+#container{
+  margin: auto;
+  width: 918px;
+  background-color: #245176;
+}
+#header{
+  height: 112px;
+  width: 918px;
+  display: block;
+  background-color: red;
+}
+#python_logo{
+  display: inline-block;
+  width: 456px;
+  height: 112px;
+  background-color: #245176;
+}/*
+#search_box {
+padding:8px 15px;
+background:rgba(50, 50, 50, 0.2);
+border:0px solid #dbdbdb;
+}
+#button_yeah {
+padding:6px 15px;
+left:-8px;
+border:2px solid;
+border-color:white;
+background-color:#245176;
+color:#fafafa;
+}*/
+#search{
+  display: inline-block;
+  width: 456px;
+  height: 112px;
+  background-color: gray;
+  vertical-align: top;
+}
+#top{
+  display: block;
+
+}
+#bottom{
+  display: block;
+
+}
+
+#main_content{
+  display: block;
+  height: 548px;
+  background-color: blue;
+}
+#links_bar{
+  display: block;
+  height: 42px;
+  width: 918px;
+  background-color: red;
+}
+#content_area{
+  height: 294px;
+  width: 918;
+  display: block;
+  background-color: blue;
+}
+#content_area_left{
+  display: inline-block;
+  width: 270px;
+  height: inherit;
+  background-color: yellow;
+}
+#content_area_right{
+  display: inline-block;
+  width: 643px;
+  height: inherit;
+  background-color: purple;
+}
+#main_content_bottom{
+  display: block;
+  height: 210px;
+  background-color: green;
+}
+#content_bottom_left{
+  display: inline-block;
+  width: 486px;
+  height: inherit;
+  background-color: gray;
+}
+#content_bottom_right{
+  display: inline-block;
+  width: 427px;
+  height: inherit;
+  background-color: red;
+}
+#footer{
+  height: 94px;
+  width: 918px;
+  background-color: black;
+}
+#footer_top{
+  display: block;
+  background-color: gray;
+  height: 72px;
+}
+#footer_bottom{
+  display: block;
+  background-color: blue;
+  height: 22px;
+}

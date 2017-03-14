@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>my jQuery basic assignment</title>
+    <link rel="stylesheet" type="text/css" href="jQueryDemo.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+        $("#ele1 > button").click(function(){
+          alert("You Clicked!");
+        })
+        $("#ele2 > button").click(function(){
+          $("#ele2 > p").hide();
+        })
+        $("#ele3 > p").hide();
+        $("#ele3 > button").click(function(){
+          $("#ele3 > p").show();
+        })
+        $("#ele4 > button").click(function(){
+          $("#ele4 > p").toggle("slow");
+        })
+        $("#ele5 > button").click(function(){
+          if($("#ele5 > p").is(":hidden"))
+          {
+            $("#ele5 > p").slideDown("slow");
+          }
+          else
+          {
+              $("#ele5 > p").hide();
+          }
+        })
+
+        $("#ele6 > button").click(function(){
+          if($("#ele6 > p").is(":hidden"))
+          {
+            $("#ele6 > p").show();
+          }
+          else
+            {
+              $("#ele6 > p").slideUp("slow");
+            }
+        })
+
+        $("#ele7 > button").click(function(){
+          $("#ele7 > p").slideToggle("slow");
+        })
+
+        $("#ele8 > button").click(function(){
+          if($("#ele8 > p").is(":hidden"))
+          {
+
+            $("#ele8 > p").fadeIn("slow");
+          }
+          else
+            {
+              $("#ele8 > p").hide();
+            }
+        })
+
+        $("#ele9 > button").click(function(){
+          if($("#ele9 > p").is(":hidden"))
+          {
+            $("#ele9 > p").show();
+
+          }
+          else
+            {
+              $("#ele9 > p").fadeOut("slow");
+            }
+        })
+
+        $("#ele10 > button").click(function(){
+          $("#ele10 > p").addClass("newClass");
+        })
+
+        $("#ele11 > button").click(function() {
+          $("#ele11 > p").before("Hello");
+        })
+
+        $("#ele12 > button").click(function() {
+          $("#ele12 > p").after("Hello");
+        })
+
+        $("#ele13 > button").click(function() {
+          $("#ele13 > p").append("Hello ");
+        })
+
+        $("#ele14 > button").click(function() {
+          $("#ele14 > p").html("<i>LOOK HERE!</i>");
+        })
+
+        var title = $("em").attr("title")
+        $("#ele15 > button").click(function() {
+          $("#ele15 > p").text(title);
+        })
+
+        $("#ele16 > button").click(function(){
+          var text = $(this).text();
+          $("#ele16 > input").val(text);
+        })
+
+        var str = $("#ele17 > p:first").text();
+        $("#ele17 > p:last").html(str);
+
+      //  $("#rawr").data("test", {first: 16, last: "pizza!"});
+      //  $("#rawr > span:first").text($("#rawr").data("test").first);
+      //  $("#rawr > span:last").text($("#rawr").data("test").last);
+
+        $("#ele18 > button").click(function(){
+          var value;
+          switch($("#ele18 > button").index(this))
+          {
+            case 0:
+              value = $("rawr").data("blah");
+              break;
+            case 1:
+              $("rawr").data("blah", "hello");
+              value = "Stored!";
+              break;
+            case 2:
+              $("rawr").data("blah", 86);
+              value = "Stored!";
+              break;
+          }
+          $("span").text("" + value);
+        })
+
+      });
+    </script>
+  </head>
+  <body>
+    <div id="content">
+      <div id="ele1" class="elements">
+        <button>Click Here</button>
+        <h1>.click() Function</h1>
+        <p>Clicking the button uses the click() function.</p>
+      </div>
+      <div id="ele2" class="elements">
+        <button>Click Here</button>
+        <h1>.hide() function</h1>
+        <p>This text should be hidden when clicked.</p>
+      </div>
+      <div id="ele3" class="elements">
+        <button>Click Here</button>
+        <h1>.show() function</h1>
+        <p>This is no longer hidden when clicked.</p>
+      </div>
+      <div id="ele4" class="elements">
+        <button>Click Here</button>
+        <h1>.toggle() function</h1>
+        <p>This text should be hidden when clicked and then reappear when clicked again.</p>
+      </div>
+      <div id="ele5" class="elements">
+        <button>Click Here</button>
+        <h1>.slideDown() function</h1>
+        <p>This text should slide down slowly.</p>
+      </div>
+      <div id="ele6" class="elements">
+        <button>Click Here</button>
+        <h1>.slideUp() function</h1>
+        <p>This text should slide up slowly.</p>
+      </div>
+      <div id="ele7" class="elements">
+        <button>Click Here</button>
+        <h1>.slideToggle() function</h1>
+        <p>This text should slide up or down slowly.</p>
+      </div>
+      <div id="ele8" class="elements">
+        <button>Click Here</button>
+        <h1>.fadeIn() function</h1>
+        <p>This text should fade in slowly.</p>
+      </div>
+      <div id="ele9" class="elements">
+        <button>Click Here</button>
+        <h1>.fadeOut() function</h1>
+        <p>This text should fade out slowly.</p>
+      </div>
+      <div id="ele10" class="elements">
+        <button>Click Here</button>
+        <h1>.addClass() function</h1>
+        <p>This text should add a class.</p>
+      </div>
+      <div id="ele11" class="elements">
+        <button>Click Here</button>
+        <h1>.before() function</h1>
+        <p>This text should add Hello before this text.</p>
+      </div>
+      <div id="ele12" class="elements">
+        <button>Click Here</button>
+        <h1>.after() function</h1>
+        <p>This text should add Hello after this text.</p>
+      </div>
+      <div id="ele13" class="elements">
+        <button>Click Here</button>
+        <h1>.append() function</h1>
+        <p>This text should add Hello append after this text.</p>
+      </div>
+      <div id="ele14" class="elements">
+        <button>Click Here</button>
+        <h1>.html() function</h1>
+        <p>This should be able to add html to things.</p>
+      </div>
+      <div id="ele15" class="elements">
+        <button>Click Here</button>
+        <h1>.attr() function</h1>
+        <p><em title="huge, gigantic">large</em>MMMMMMM</p>
+      </div>
+      <div id="ele16" class="elements">
+        <button>Click Here</button>
+        <button>Da fuq</button>
+        <h1>.val() function</h1>
+        <input type="text" value="click a button">
+      </div>
+      <div id="ele17" class="elements">
+        <button>Click Here</button>
+        <h1>.text() function</h1>
+        <p><b>This</b> is some text.</p>
+        <p></p>
+      </div>
+      <div id="ele18" class="elements">
+        <button>get "blah" from it</button>
+        <button>set "blah" to "chicken"</button>
+        <button>set "blah" to "cow"</button>
+        <h1>.data() function</h1>
+        <!--<div id="rawr">The values stored were <span></span> and <span></span></div>-->
+        <div id="rawr">a div</div>
+        <p>the "blah" value of this div is <span>?</span></p>
+      </div>
+    </div>
+  </body>
+</html>

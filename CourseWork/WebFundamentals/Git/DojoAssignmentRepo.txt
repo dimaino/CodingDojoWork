@@ -1,0 +1,9 @@
+1.) create repository on githib.com called DojoAssignments
+2.) cd DojoAssignments
+3.) git add .
+4.) git commit -m "started new repository for coding dojo assignment"
+5.) git remote add origin https://github.com/dimaino/DojoAssignments.git
+6.) git push -u origin master
+7.) Create read me "The contents of this folder includes Coding Dojo assignments that have been completed and submitted."
+8.) git status
+9.) git commit -m "added the rest of the files and changes to github"

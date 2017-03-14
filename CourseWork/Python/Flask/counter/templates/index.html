@@ -1,0 +1,15 @@
+<html>
+    <head>
+       <title>Counter</title>
+    </head>
+    <body>
+      <h1>Counter:</h1>
+      <p>{{ session['counter'] }}</p>
+      <form  action='/data' method='post'>
+        <input type="submit" name="name" value='Add 2'>
+      </form>
+      <form  action='/somedata' method='post'>
+        <input type="submit" name="name" value='Back to 1'>
+      </form>
+    </body>
+</html>

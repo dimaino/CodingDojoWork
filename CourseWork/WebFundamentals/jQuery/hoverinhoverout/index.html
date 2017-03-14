@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>my jQuery basic assignment</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $("#wrapper").hover(function()
+        {$(".pictureStuff").hide();},
+        {$(".pictureStuff").show();});
+    });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="wrapper">
+        <div class="pictureStuff">
+          <img id="picture1" class="pictureSize" src="ninja.png" alt="ninja">
+        </div>
+    </div>
+  </div>
+  </body>
+</html>

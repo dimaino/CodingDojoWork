@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>my jQuery basic assignment</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+      $("img").hover(function(){
+        switch($("img").index(this))
+        {
+          case 0:
+            $("#picture1").hide();
+            break;
+          case 1:
+            $("#picture2").hide();
+            break;
+          case 2:
+            $("#picture3").hide();
+            break;
+          case 3:
+            $("#picture4").hide();
+            break;
+          case 4:
+            $("#picture5").hide();
+            break;
+          case 5:
+            $("#picture6").hide();
+            break;
+          case 6:
+            $("#picture7").hide();
+            break;
+          case 7:
+            $("#picture8").hide();
+            break;
+        }
+      })
+
+      $("button").click(function(){
+        $("img").show();
+      })
+    });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="wrapper">
+        <div class="pictureStuff">
+          <img id="picture1" class="pictureSize" src="ninja.png" alt="ninja">
+        </div>
+        <div class="pictureStuff">
+          <img id="picture2" class="pictureSize" src="ninja.png" alt="ninja">
+        </div>
+        <div class="pictureStuff">
+          <img id="picture3" class="pictureSize" src="ninja.png" alt="ninja">
+        </div>
+        <div class="pictureStuff">
+          <img id="picture4" class="pictureSize" src="ninja.png" alt="ninja">
+        </div>
+        <div class="pictureStuff">
+          <img id="picture5" class="pictureSize" src="ninja.png" alt="ninja">
+        </div>
+        <div class="pictureStuff">
+          <img id="picture6" class="pictureSize" src="ninja.png" alt="ninja">
+        </div>
+        <div class="pictureStuff">
+          <img id="picture7" class="pictureSize" src="ninja.png" alt="ninja">
+        </div>
+        <div class="pictureStuff">
+          <img id="picture8" class="pictureSize" src="ninja.png" alt="ninja">
+        </div>
+      </div>
+      <div id="under_wrapper">
+        <button>Restore Images</button>
+      </div>
+    </div>
+  </body>
+</html>

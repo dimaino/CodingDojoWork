@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Add / Remove Table Rows Dynamically</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="jQuery.js"></script>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Daniel Imaino</td>
+          <td>Imaino</td>
+          <td>dimaino@comcast.net</td>
+          <td>(206) 909-9316</td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="Thingslol">
+      <form>
+        First Name:
+        <input type="text" id="first-name" placeholder="First Name">
+        <br>
+        Last Name:
+        <input type="text" id="last-name" placeholder="Last Name">
+        <br>
+        Email:
+        <input type="text" id="email" placeholder="Email Address">
+        <br>
+        Phone Number:
+        <input type="text" id="phonen" placeholder="Phone Number">
+        <br>
+        <input type="button" class="add-row" value="Add Row">
+      </form>
+    </div>
+  </body>
+</html>

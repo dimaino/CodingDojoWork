@@ -1,0 +1,13 @@
+1.) Windows Key + R
+2.) Type in cmd
+3.) C:\Users\dimaino (cd Desktop)
+4.) md test
+5.) NUL index.html Nul styles.css NUL commands.txt
+6.) copy index.html index_2.html
+7.) del styles.css
+8.) md destination
+9.) move C:\User\dimaino\Desktop\test\index_2.html C:\User\dimaino\Desktop\destination\index_2.html
+10.) From C:\Users\dimaino cd Desktop\test dir  cd Desktop\destination dir
+11.) rd /s destination
+12.) Click yes.
+13.) To navigate use cd .. to go up a directory and cd [folder name] to go down a directory.

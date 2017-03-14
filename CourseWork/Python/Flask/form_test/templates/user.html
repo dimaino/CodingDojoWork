@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Form Test Show</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/form4.css') }}">
+  </head>
+  <body id="userbody">
+    <h1>Submitted Info</h1>
+    <h3>Name: {{session['name']}}</h3>
+    <h3>Location: {{session['location']}}</h3>
+    <h3>Favorite Language: {{session['language']}}</h3>
+    <h3>Comment: {{session['comment']}}</h3>
+    <button onclick="goBack()">Go Back</button>
+	<script>
+	function goBack() {
+	    window.history.back();
+	}
+	</script>
+  </body>
+</html>

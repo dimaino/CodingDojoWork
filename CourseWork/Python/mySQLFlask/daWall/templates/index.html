@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>LOGIN/REGISTRATION</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p id="flash_messages">{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <br>
+    <p class="register_title">Register</p>
+    <div class="register_div">
+      <form method="POST" action="/register">
+        <span class="fontawesome-user"></span>
+        <input name="firstForm" type="text" required placeholder="First Name" autocomplete="off">
+        <span class="fontawesome-user"></span>
+        <input name="lastForm" type="text" required placeholder="Last Name" autocomplete="off">
+        <span class="fontawesome-envelope-alt"></span>
+        <input name="emailForm" type="text" id="email" required placeholder="Email" autocomplete="off">
+        <span class="fontawesome-lock"></span>
+        <input type="password" name="passwordForm" id="password1" required placeholder="Password" autocomplete="off">
+        <span class="fontawesome-lock"></span>
+        <input type="password" name="passwordComForm" id="password2" required placeholder="Password" autocomplete="off">
+			  <input type="submit" value="Register" title="Register_Now">
+      </form>
+    </div>
+    <br>
+    <br>
+    <p class="register_title">Login</p>
+    <div class="register_div">
+      <form method="POST" action="/login">
+        <span class="fontawesome-envelope-alt"></span>
+        <input name="emailForm" type="text" id="email" required placeholder="Email" autocomplete="on">
+        <span class="fontawesome-lock"></span>
+        <input type="password" name="passwordForm" id="password2" required placeholder="Password" autocomplete="on">
+			  <input type="submit" value="Login" title="Login_Now">
+      </form>
+    </div>
+  </body>
+</html>

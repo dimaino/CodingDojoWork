@@ -1,0 +1,21 @@
+#center{
+  text-align: center;
+}
+#centerDiv{
+  height: 200px;
+  width: 200px;
+  background-color: red;
+  text-align: center;
+  margin: 0 auto;
+  border: 4px solid black;
+}
+#centerDiv > p{
+  padding-top: 50px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+#centerForm{
+  margin-top: 20px;
+  text-align: center;
+}

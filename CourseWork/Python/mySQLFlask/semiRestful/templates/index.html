@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>LOGIN/REGISTRATION</title>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p id="flash_messages">{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <h1>Users</h1>
+    {% for i in %}
+      {{i['first_name'] - i['last_name']}}
+    {% endfor %}
+    <table>
+      <tr>
+        <th></th>
+      </tr>
+      <tr>
+        <th></th>
+      </tr>
+    </table>
+
+    <form action="" method="POST">
+
+    </form>
+
+
+
+
+    </div>
+  </body>
+</html>

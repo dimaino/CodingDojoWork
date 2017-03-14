@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>my jQuery basic assignment</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $("img").click(function(){
+        switch($("img").index(this))
+        {
+          case 0:
+            $("#n0").attr("src", "cat0.png");
+            break;
+          case 1:
+            $("#n1").attr("src", "cat1.png");
+            break;
+          case 2:
+            $("#n2").attr("src", "cat2.png");
+            break;
+          case 3:
+            $("#n3").attr("src", "cat3.png");
+            break;
+          case 4:
+            $("#n4").attr("src", "cat4.png");
+            break;
+        }
+      })
+    });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="wrapper">
+        <img id="n0" src="ninja0.png" data-alt-src="cat0.png">
+        <img id="n1" src="ninja1.png" data-alt-src="cat1.png">
+        <img id="n2" src="ninja2.png" data-alt-src="cat2.png">
+        <img id="n3" src="ninja3.png" data-alt-src="cat3.png">
+        <img id="n4" src="ninja4.png" data-alt-src="cat4.png">
+      </div>
+    </div>
+  </body>
+</html>

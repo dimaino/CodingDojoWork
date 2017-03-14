@@ -1,0 +1,112 @@
+*{
+  background-color: black;
+}
+h1, p{
+  color: white;
+}
+body{
+  margin:auto;
+  text-align: center;
+}
+#content_div{
+
+}
+#title_div{
+  text-align: left;
+  border-bottom: 2px white solid;
+}
+#title_left{
+  display: inline-block;
+  text-align: right;
+  margin-left: 2%;
+}
+#title_right{
+  display: inline-block;
+  float: right;
+  margin-right: 35px;
+}
+#title_logout{
+  display: inline-block;
+  float: right;
+  margin-top: 15px;
+  margin-right: 25px;
+}
+#messages_and_comments{
+
+}
+h2{
+  text-align: left;
+  margin-left: 5%;
+}
+#message_form{
+
+}
+#message_area{
+  display: block;
+  height: 150px;
+  width: 95%;
+  margin-left: 2.5%;
+  color: white;
+}
+#message_submit{
+  margin-top: 10px;
+  padding: 10px 15px;
+  display: block;
+  margin-left: 85%;
+}
+#message_name{
+  text-align: left;
+  margin-left: 10%;
+  font-size: 20px;
+  font-weight: bold;
+}
+#messages_here{
+  font-size: 16px;
+  text-align: justify;
+  margin-left: 15%;
+  margin-right: 15%;
+  word-wrap: break-word;
+}
+#comment_name{
+  text-align: left;
+  margin-left: 15%;
+  margin-right: 15%;
+  font-size: 20px;
+  font-weight: bold;
+}
+#comment_area{
+  text-align: left;
+  margin-left: 15%;
+  margin-right: 15%;
+  word-wrap: break-word;
+  color: white;
+}
+#text_area{
+  margin: 30px;
+  border: 2px white solid;
+}
+#posting_comment{
+
+}
+#comment_textarea{
+  width: 80%;
+  margin-left: 10%;
+  display: block;
+  height: 10%;
+  color: white;
+}
+#comment_submit{
+  margin-left: 78%;
+  display: block;
+  margin-top: 1%;
+  padding: 10px;
+}
+#deleting_comment{
+
+}
+#deleting_submit{
+
+}
+input[type="submit"]{
+  color: white;
+}

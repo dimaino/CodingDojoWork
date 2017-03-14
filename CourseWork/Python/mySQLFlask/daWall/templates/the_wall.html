@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>LOGIN/REGISTRATION</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/the_wall.css') }}">
+  </head>
+  <body>
+  <div id="content_div">
+    <div id="title_div">
+      <h1 id="title_left">CodingDojo Wall</h1>
+      <form id="title_logout" action="/wall/logout" method="POST">
+        <input type="submit" value="logout">
+      </form>
+      <p id="title_right"> Welcome {{loginUser['first_name']}}</p>
+    </div>
+    <div id="messages_and_comments">
+      <h2>Post a message</h2>
+      <form id="message_form" action="/wall/postMessage" method="POST">
+        <textarea id="message_area" name="post_a_message"></textarea>
+        <input id="message_submit" type="submit" value="Post a message">
+      </form>
+      <div id="text_area">
+
+        
+
+
+      {% if session['messageCheck'] == True %}
+        {% for i in messageInfo %}
+          {% for l in userNames %}
+            {% if i['user_id'] == l['id']%}
+              <p id="message_name">{{l['first_name']}} {{l['last_name']}} - {{i['created_at']}}</p>
+            {% endif %}
+          {% endfor %}
+          <p id="messages_here">{{i['messages']}}</p>
+          {% if session['commentCheck'] == True %}
+            {% for g in commentInfo %}
+              {% for k in userNames %}
+                {% if g['user_id'] == k['id'] and g['message_id'] == i['id']%}
+                  <p id="comment_name">{{k['first_name']}} {{k['last_name']}} - {{g['created_at']}}</p>
+                {% endif %}
+              {% endfor %}
+              {% if g['message_id'] == i['id'] %}
+                <p id="comment_area">{{g['comment']}}</p>
+                <br>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          <form id="posting_comment" action="/wall/{{i['id']}}/postComment" method="POST">
+            <textarea id="comment_textarea" name="post_a_comment"></textarea>
+            <input id="comment_submit" type="submit" value="Post a comment">
+          </form>
+          {% if i['user_id'] == session['user_id'] %}
+          <form id="deleting_comment" action="/wall/{{i['id']}}/deleteMessage" method="POST">
+            <input id="deleting_submit" type="submit" value="Delete the message!!!">
+          </form>
+          {% endif %}
+          <br>
+        {% endfor %}
+      {% endif %}
+      </div>
+      </div>
+    </div>
+  </body>
+</html>

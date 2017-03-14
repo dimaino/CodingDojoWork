@@ -1,0 +1,25 @@
+<html>
+<head>
+  <title>Friends</title>
+</head>
+<body>
+
+  <h1>Edit your friend's information:</h1>
+
+   {% for friend_id in something: %}  
+    <p>First name: {{friend_id['first_name']}}</p>
+    <p>Last name: {{friend_id['last_name']}}</p>
+    <p>AGE: {{friend_id['age']}}</p>
+    <p>Time: {{friend_id['updated_at']}}</p>
+        
+    <form action="/friends/{{friend_id['id']}}" method='POST'>
+    <label for="first">First name:<input type="text" name="first" id="firstid"></label>
+    <label for="last">Last name:<input type="text" name="last" id="lastid"></label>
+    <label for="age">Age:<input type="text" name="age" id="ageid"></label>
+    <input type="submit" value="Update">
+    </form>
+    <hr>
+    {% endfor %}
+
+</body>
+</html>

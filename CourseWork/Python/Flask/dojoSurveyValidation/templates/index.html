@@ -1,0 +1,36 @@
+<html>
+    <head>
+       <title>Form Test Index</title>
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    </head>
+    <body>
+      <form action='/submit' method='post'>
+          Your Name: <input id="nameinput" type='text' name='name'><br>
+          Dojo Locations:
+          <select name="location">
+            <option value="Seattle">Seattle</option>
+            <option value="Silicon Valley">Silicon Valley</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="Dallas">Dallas</option>
+            <option value="Washington DC">Washington DC</option>
+            <option value="Chicago">Chicago</option>
+            <option value="Berkeley">Berkeley</option>
+            <option value="Orange County">Orange County</option>
+          </select>
+          <br>
+          Favorite Language:
+          <select name="language">
+            <option value="Python">Python</option>
+            <option value="Javascript">JavaScript</option>
+            <option value="Java">Java</option>
+            <option value="C">C</option>
+            <option value="C++">C++</option>
+            <option value="C#">C#</option>
+          </select>
+          Comment (optional):
+          <textarea name="text" id="commentinput">
+          </textarea>
+          <input id="buttonsubmit" type='submit' value='button'>
+      </form>
+    </body>
+</html>

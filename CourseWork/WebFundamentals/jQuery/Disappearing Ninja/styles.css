@@ -1,0 +1,19 @@
+#container{
+  width: 1000px;
+}
+#wrapper{
+  height: 600px;
+  width: 100%;
+
+}
+.pictureStuff{
+  height: 300px;
+  width: 200px;
+  display: inline-block;
+  background-color: red;
+}
+.pictureSize{
+  height: 300px;
+  width: 200px;
+  display: inline-block;
+}

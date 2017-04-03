@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Product Info</title>
+  </head>
+  <body>
+      <h1>Product {{currentProduct.id}}</h1>
+      Name: {{currentProduct.name}}<br>
+      Description: {{currentProduct.description}}<br>
+      Price: {{currentProduct.price}}<br>
+
+      <a href="{% url 'rest:editProduct' id=currentProduct.id %}">Edit</a>
+      <a href="{% url 'rest:index' %}">Back</a>
+
+  </body>
+</html>

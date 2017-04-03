@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login and Registration</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bestLogin/css/styles.css' %}">
+  </head>
+  <body>
+    <div class="container">
+
+      {% if messages %}
+        {% for message in messages %}
+          {{ message|linebreaksbr }}
+        {% endfor %}
+      {% endif %}
+
+      <form action="{% url 'loginUsers:register' %}" method="POST">
+        <fieldset>
+          {% csrf_token %}
+          <legend>REGISTER</legend>
+          Name: <input type="text" name="name"><br><br>
+          Username: <input type="text" name="username"><br><br>
+          Password: <input type="password" name="password"><br><br>
+          <p>*Password should be at least 8 characters</p>
+          Confirm Password: <input type="password" name="confirm_password"><br><br>
+          <input type="submit" value="Register">
+        </fieldset>
+      </form>
+
+      <form action="{% url 'loginUsers:login' %}" method="POST">
+        <fieldset>
+          {% csrf_token %}
+          <legend>LOGIN</legend>
+          Username: <input type="text" name="username"><br><br>
+          Password: <input type="password" name="password"><br><br>
+          <input type="submit" value="Login">
+        </fieldset>
+      </form>
+    </div>
+
+    <h2>This is just for testing!</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Hashed Password</th>
+      </tr>
+    {% for i in showRegisteredUsers %}
+      <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.username}}</td>
+        <td>{{i.password}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  </body>
+</html>

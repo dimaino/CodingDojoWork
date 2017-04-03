@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Destination</title>
+  </head>
+  <body>
+    <a href="{% url 'someApp:index' %}">Home</a>
+    <a id="logout_right" href="{% url 'loginUsers:index' %}">Logout</a>
+    <h1>{{currTrip.trip}}</h1>
+    <h3>Planned By: {{currTrip.creator.name}}</h3>
+    <h3>Description: {{currTrip.description}}</h3>
+    <h3>Travel Date From: {{currTrip.travelStart}}</h3>
+    <h3>Travel Date To: {{currTrip.travelEnd}}</h3>
+    <br>
+    <br>
+    <br>
+    <h1>Other users' joining the trip:</h1>
+    {% for i in otherUsers %}
+    <p>{{i.name}}</p>
+    {% endfor %}
+  </body>
+</html>

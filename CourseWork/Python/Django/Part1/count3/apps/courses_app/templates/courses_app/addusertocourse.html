@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'coursesapp/css/styles.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <title>Add Users to Courses</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <form action="{% url 'coursesapp_index' %}">{% csrf_token %}<input class="btn btn-default" type="submit" value="See Courses" id="movetoupperrightdos"></form>
+            <h1>Add Users to Courses</h1>
+            <div id="line">
+                <div id=usersdropdown>
+                    <form action="{% url 'coursesapp_addusertocourse'%}" method="POST">
+                        {% csrf_token %}
+                        <select name="user">
+                            <option selected="selected" disabled="disabled">Users</option>
+                            {% for user in users %}
+                            <option value="{{user.id}}">{{user.first_name}}</option>
+                            {% endfor %}
+                        </select>
+                </div>
+                <div id="coursesdropdown">
+                    <select name="course">
+                        <option selected="selected" disabled="disabled">Course</option>
+                    {% for course in courses %}
+                        <option value="{{course.id}}">{{course.course_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div id="addusertocoursebutton">
+                    <input class="btn btn-default" type="submit" value="Add User to Course">
+                </div>
+                    </form>
+            </div>
+                <table class="table">
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Course Description</th>
+                        <th>Number of Students Signed Up</th>
+                    </tr>
+                    <td>
+                        {% for course in courses %}
+                        <p>{{ course.course_name }}</p>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for course in courses %}
+                        <p>{{ course.description }}</p>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for count in counts %}
+                            <p>{{ count.num_users }}</p>
+                        {% endfor %}
+                    </td>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Gold</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'NingaGold/style.css' %}" />
+</head>
+<body>
+<div>
+	<h3>Your Gold:</h3>
+	<h3></h3>
+</div>
+<div id="topwrap">
+	<div class="boxes4" id="farmbox">
+		<h2>Farm</h2>
+		<h3>(earns 10-20 golds)</h3>
+		<form action="/process_money" method="post">
+		  <input type="hidden" name="hidden" value="farm" />
+		  <input type="submit"  name="submit" value="Find Gold!">
+		</form>
+	</div>
+	<div class="boxes4" id="cavebox">
+		<h2>Cave</h2>
+		<h3>(earns 5-10 golds)</h3>
+		<form action="/process_money" method="post">
+		  <input type="hidden" name="hidden" value="cave" />
+		  <input type="submit" name="submit" value="Find Gold!">
+		</form>
+	</div>
+	<div class="boxes4" id="housebox">
+		<h2>House</h2>
+		<h3>(earns 2-5 golds)</h3>
+		<form action="/process_money" method="post">
+		  <input type="hidden" name="hidden" value="house" />
+		  <input type="submit" name="submit" value="Find Gold!">
+		</form>
+	</div>
+	<div class="boxes4" id="casinobox">
+		<h2>Casino</h2>
+		<h3>(earns/takes 0-50 golds)</h3>
+		<form action="/process_money" method="post">
+		  <input type="hidden" name="hidden" value="casino" />
+		  <input type="submit" name="submit" value="Find Gold!">
+		</form>
+	</div>
+<textarea></textarea>
+<form action="/reset" method="post">
+	 	<input type="hidden" name="hidden" value="reset" />
+		<input type="submit" name="submit" value="Reset the game">
+</form>
+</body>
+</html>

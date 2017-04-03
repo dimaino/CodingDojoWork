@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Book and Review</title>
+  </head>
+  <body>
+    <a id="home_right" href="{% url 'books:index' %}">Home</a>
+    <a id="logout_right" href="{% url 'loginUsers:logout' %}">Logout</a>
+
+    <h2>{{showBook.name}}</h2>
+    <h4>{{showBook.author.name}}</h4>
+    {% if messages %}
+      {% for message in messages %}
+        {{ message|linebreaksbr }}
+      {% endfor %}
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    <h4>Reviews:</h4>
+    {% for i in showReviews %}
+    <hr>
+    <p>Rating: {{i.rating}}</p>
+    <p>{{i.user.first_name}} says: {{i.content}}</p>
+    <p>{{i.created_at}}</p>
+    {% if request.session.currentUser == i.user.id %}
+      <a href="{% url 'books:delete' id=i.id %}">Delete</a>
+    {% endif %}
+    {% endfor %}
+    {{showReviews.book.id}}
+    <h3>Add a Review:</h3>
+    <form class="" action="{% url 'books:reviewToBook' id=showBook.id %}" method="post">
+      {% csrf_token %}
+      <textarea name="reviewcontent"></textarea>
+      Rating:
+      <select class="" name="reviewrating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <input type="submit" value="Submit Review">
+    </form>
+  </body>
+</html>

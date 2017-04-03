@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Books Home</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Books/css/styles.css' %}">
+  </head>
+  <body>
+    <p id="welcome_message">Welcome, {{currentUserLoggedIn.first_name}}</p>
+    <a id="add_book_right" href="{% url 'books:bookreviewpage' %}">Add Book and Review</a>
+    <a id="logout_right" href="{% url 'loginUsers:logout' %}">Logout</a>
+    <br>
+    <br>
+    <br>
+    <p class="sametextsize">Recent Book Reviews:</p>
+     {% for i in Reviews %}
+
+
+
+      <p class="BookReview" id="bookTitle"><a href="{% url 'books:specificBook' id=i.book.id %}">{{i.book.title}}</a></p>
+      {% for j in theRatings %}
+      {% if forloop.counter == forloop.parentloop.counter %}
+      <div class="ratings">
+    <div class="empty-stars"></div>
+    <div class="full-stars" style="width:{{j}}%"></div>
+</div>
+      {% endif %}
+      {% endfor %}
+
+
+      <p class="BookReview" id="rating">Rating: {{i.book.rating}}</p>
+      <p class="BookReview" id="user"><a href="{% url 'books:showUser' id=i.user.id %}">{{i.user.first_name}}</a> says: </p>
+      <p class="BookReview" id="content">{{i.content}}</p>
+      <p class="BookReview" id="dateOfReview">{{i.created_at}}</p>
+
+     {% endfor %}
+    <br>
+    <br>
+    <br>
+    <div style="border : solid 2px black; padding : 4px; width : 500px; height : 200px; overflow : auto; ">
+
+      {% for i in Table1Test %}
+      <br>
+        <a href="{% url 'books:specificBook' id=i.book.id %}">{{i.book.title}}</a>
+        <br>
+       {% endfor %}
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <h1>Table of Reviews</h1>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Content</th>
+        <th>Rating</th>
+        <th>User</th>
+        <th>Book</th>
+        <th>Created_at</th>
+      </tr>
+      {% for i in Table1Test %}
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.content}}</td>
+        <td>{{i.rating}}</td>
+        <td>{{i.user.first_name}}</td>
+        <td>{{i.book.title}}</td>
+        <td>{{i.created_at}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <br>
+    <br>
+    <h1>Table of Books</h1>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>created_at</th>
+      </tr>
+      {% for i in Table2Test %}
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.title}}</td>
+        <td>{{i.author.name}}</td>
+        <td>{{i.created_at}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <br>
+    <br>
+    <h1>Table of Authors</h1>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Author</th>
+        <th>created_at</th>
+      </tr>
+      {% for i in Table3Test %}
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.created_at}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+
+  </body>
+</html>

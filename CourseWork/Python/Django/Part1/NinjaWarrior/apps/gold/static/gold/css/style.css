@@ -1,0 +1,29 @@
+#topwrap{
+	height: 300px;
+}
+.boxes4{
+	width: 250px;
+	height: 250px;
+	border:3px solid black;
+	text-align: center;
+	display: inline-block;
+}
+textarea{
+	width:1020px;
+	height: 300px;
+	border: 3px solid black;
+}
+h1{
+	color:red;
+}
+h6{
+	color:blue;
+	font-weight: bold;
+	font-size: 30px;
+
+}
+h5{
+	color:red;
+	font-weight: bold;
+	font-size: 30px;
+}

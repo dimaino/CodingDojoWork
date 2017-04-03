@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Reviews</title>
+  </head>
+  <body>
+    <a id="home_right" href="{% url 'books:index' %}">Home</a>
+    <a id="add_book_right" href="{% url 'books:bookreviewpage' %}">Add Book and Review</a>
+    <a id="logout_right" href="{% url 'loginUsers:logout' %}">Logout</a>
+    <h1>User Allas: {{showUser.first_name}}</h1>
+    <p>Name: {{showUser.first_name}} {{showUser.last_name}}</p>
+    <p>Email: {{showUser.email}}</p>
+    <p>Total Reviews: {{reviewCount}}</p>
+    <br>
+    <br>
+    <br>
+    <h1>Posted Reviews on the following books:</h1>
+    {% for i in showUsersReviews %}
+      <p><a id="logout_right" href="{% url 'books:specificBook' id=i.book.id %}">{{i.book.title}}</a></p>
+    {% endfor %}
+  </body>
+</html>

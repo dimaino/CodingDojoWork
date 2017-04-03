@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SurveyShow</title>
+    </head>
+    <body>
+
+      <h1>Submitted Information #{{request.session.count}}</h1>
+      <p>Name: {{request.session.name1}}</p>
+      <p>Dojo Location: {{request.session.loca}}</p>
+      <p>Favorite Language: {{request.session.lang}}</p>
+      <p>Comment: {{request.session.mess}}</p>
+      <form action="/" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Go Back">
+      </form>
+    </body>
+</html>

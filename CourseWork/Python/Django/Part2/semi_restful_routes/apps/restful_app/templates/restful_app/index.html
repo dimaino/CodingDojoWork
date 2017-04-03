@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All Products | Semi Restful Route Demo</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'restful_app/css/styles.css' %}">
+  </head>
+  <body>
+    <h1>Prodcuts</h1>
+    <br>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+      {% for items in showAllProducts %}
+      <tr>
+        <td>{{items.name}}</td>
+        <td>{{items.description}}</td>
+        <td>${{items.price}}</td>
+        <td>
+          <a href="{% url 'rest:showProduct' id=items.id %}">Show</a>
+          <p class="inline-blockslol"> | </p>
+          <a href="{% url 'rest:editProduct' id=items.id %}">Edit</a>
+          <p class="inline-blockslol"> | </p>
+          <form action="{% url 'rest:removeProduct' id=items.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Delete">
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <a href="{% url 'rest:newProduct' %}">Add a new product</a>
+  </body>
+</html>

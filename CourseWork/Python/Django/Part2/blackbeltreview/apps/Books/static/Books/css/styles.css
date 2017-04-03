@@ -1,0 +1,107 @@
+@import "lesshat";
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: auto 0;
+}
+fieldset {
+  border: 2px black solid;
+  margin: 10px;
+}
+table {
+  border-collapse: collapse;
+  margin: 10px;
+  width: 98%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.container {
+  width: 500px;
+  clear: both;
+}
+.container input {
+  width: 100%;
+  clear: both;
+}
+#logout_right{
+  text-align: right;
+  display: inline-block;
+  float: right;
+  margin: 10px;
+}
+#welcome_message{
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+}
+#button_to_link{
+  background:none!important;
+  color:blue;
+  border:none;
+  padding:0!important;
+  font: inherit;
+  border-bottom:1px solid #444;
+  cursor: pointer;
+}
+
+#add_book_right{
+  margin-left: 65%;
+}
+.BookReview{
+    margin-left: 50px;
+}
+#bookTitle{
+  margin-left: 40px;
+  margin-top: 30px;
+}
+#rating{
+
+}
+#user{
+
+}
+#content{
+
+}
+#dateOfReview{
+
+}
+.sametextsize{
+  margin-left: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+.ratings {
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    color: #b1b1b1;
+    overflow: hidden;
+        margin-left: 49px;
+}
+.full-stars {
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #fde16d;
+}
+.empty-stars:before, .full-stars:before {
+    content:"\2605\2605\2605\2605\2605";
+    font-size: 14pt;
+}

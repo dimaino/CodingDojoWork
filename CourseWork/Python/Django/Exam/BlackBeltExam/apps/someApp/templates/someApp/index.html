@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Some App</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'someApp/css/styles.css' %}">
+  </head>
+  <body>
+      <h5 id='loggedInUser'>Hello, {{currentUser.name}}<h5>
+      <form id="logout_right" action="{% url 'loginUsers:index' %}" method="GET">
+        {% csrf_token %}
+        <input id="button_to_link" type="submit" value="Logout">
+      </form>
+
+      <h3>Your Trip Schedules</h3>
+      <table>
+        <tr>
+          <th>Destination</th>
+          <th>Travel Start Date</th>
+          <th>Travel End Date</th>
+          <th>Plan</th>
+        </tr>
+        {% for i in myTrips %}
+        <tr>
+          <td><a href="{% url 'someApp:tripDetails' id=i.id %}">{{i.trip}}</a></td>
+          <td>{{i.travelStart}}</td>
+          <td>{{i.travelEnd}}</td>
+          <td>{{i.description}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br>
+      <br>
+      <br>
+      <h3>Other User's Travel Plans</h3>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Destination</th>
+          <th>Travel Start Date</th>
+          <th>Travel End Date</th>
+          <th>Do You Want to Join?</th>
+        </tr>
+        {% for i in allTrips %}
+        <tr>
+          <td>{{i.creator.name}}</td>
+          <td><a href="{% url 'someApp:tripDetails' id=i.id %}">{{i.trip}}</a></td>
+          <td>{{i.travelStart}}</td>
+          <td>{{i.travelEnd}}</td>
+          <td><a href="{% url 'someApp:tripJoin' id=i.id %}">Join</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+      <a href="{% url 'someApp:addTripPage' %}">Add Travel Plan</a>
+  </body>
+</html>

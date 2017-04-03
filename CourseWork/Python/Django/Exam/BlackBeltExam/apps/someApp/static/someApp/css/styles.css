@@ -1,0 +1,46 @@
+*{
+  vertical-align: baseline;
+  font-weight: inherit;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: inherit;
+  font-size: 100%;
+  border: 0 none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+}
+#logout_right{
+  text-align: right;
+  display: inline-block;
+  float: right;
+  margin: 10px;
+  margin-top: -30px;
+}
+#loggedInUser{
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+}
+#button_to_link{
+  background:none!important;
+  color:blue;
+  border:none;
+  padding:0!important;
+  font: inherit;
+  border-bottom:1px solid #444;
+  cursor: pointer;
+}
+table {
+  border-collapse: collapse;
+  margin: 10px;
+  width: 98%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

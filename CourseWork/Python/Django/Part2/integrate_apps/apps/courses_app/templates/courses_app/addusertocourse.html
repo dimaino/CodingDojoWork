@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'courses_app/css/styles.css' %}">
+    <title>Add Users to Courses</title>
+  </head>
+  <body>
+    <form action="{% url 'courseApp:index' %}">
+      {% csrf_token %}
+      <input type="submit" value="Back to Courses">
+    </form>
+    <h1>Add Users to Courses</h1>
+    <form action="{% url 'courseApp:addusertocourse'%}" method="POST">
+      {% csrf_token %}
+      <select name="user">
+        <option selected="selected" disabled="disabled" value=''>Users</option>
+        {% for user in users %}
+        <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
+        {% endfor %}
+      </select>
+      <select name="course">
+        <option selected="selected" disabled="disabled" value=''>Course</option>
+        {% for course in courses %}
+        <option value="{{course.id}}">{{course.course_name}}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Add User to Course">
+    </form>
+
+
+
+    <table>
+      <tr>
+        <th>Course Name</th>
+        <th>Course Description</th>
+        <th>Number of Students Signed Up</th>
+      </tr>
+      {% for course in courses %}
+      <tr>
+        <td>
+          <p>{{ course.course_name }}</p>
+        </td>
+        <td>
+          <p>{{ course.description }}</p>
+        </td>
+        <td>
+          {% for count in counts %}
+              {% if forloop.counter == forloop.parentloop.counter %}
+              <p>{{ count.num_users }} </p>
+              {% endif %}
+            {% endfor %}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

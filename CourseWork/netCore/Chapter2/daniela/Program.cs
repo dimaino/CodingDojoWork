@@ -30,6 +30,40 @@ namespace ConsoleApplication
                 new int[] {10,20,30,40,50,60,70,80,90,100}
             };
 
+            int[,] newArrayLOL = new int [10,10];
+            int[][] someArray = new int[10][];
+
+
+
+            for(int i = 0; i <  10; i++)
+            {
+
+                for(int x = 0; x < 10; x++)
+                {
+                    newArrayLOL[i,x] = (i + 1) * (x + 1);
+                }
+            }
+
+            for(int i = 0; i <  10; i++)
+            {
+                Console.Write("[");
+                for(int x = 0; x < 10; x++)
+                {
+                    Console.Write(newArrayLOL[i,x] + ",");
+                    if(newArrayLOL[i,x] < 10)
+                    {
+                        Console.Write(" ");
+                    }
+                    else if(!(x == 9 && i == 9) && x == 9)
+                    {
+                        Console.Write(" ");
+                    }
+                }
+                
+                Console.Write("]");
+                Console.WriteLine(" ");
+            }
+
             // Create a list of 5 ice creams, print the length, print 3rd flavor, remove it and print the length again.
             List<string> icecreams = new List<string>();
             icecreams.Add("Vanilla");
@@ -50,21 +84,16 @@ namespace ConsoleApplication
             mydic.Add("Nikki", null);
             mydic.Add("Sara", null);
 
-            Console.WriteLine("++++++++++++++++++++++++++++");
+            Console.WriteLine("Print the dictionary part!");
+
             Random rand = new Random();
-            int num = 4;
-            for(int i = 0; i < 4; i++)
+            foreach(var something in arrayNames){
+                mydic[something] = icecreams[rand.Next(icecreams.Count)];
+            }
+            foreach(KeyValuePair<string, string> entry in mydic)
             {
-                Console.WriteLine(i);
-                Console.WriteLine(i+num);
-                rand.Next(i,i+num);
-                num--;
+                Console.WriteLine(entry.Key + " " + entry.Value);
             }
-            for(something in mydic){
-
-            }
-
-            
         }
     }
 }

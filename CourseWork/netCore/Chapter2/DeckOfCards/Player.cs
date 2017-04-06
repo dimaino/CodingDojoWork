@@ -11,32 +11,20 @@ namespace ConsoleApplication {
             name = myName;
         }
 
-        // public bool checkCards(string cardGuess)
-        // {
-        //     for(int i = 0; i < playersHand.Count - 1; i++)
-        //     {
-        //         if(playersHand[i].ToString().Equals(cardGuess))
-        //         {
-        //             return true;
-        //         }
-        //     }
-        //     return false;
-        // }
-
         public KeyValuePair<bool, List<Card>> checkCardNum(string cardVal)
         {
             List<Card> newCardList = new List<Card>(); 
             bool doesHandContain = false;
             for(int i = playersHand.Count - 1; i >= 0; i--)
             {
-                //System.Console.WriteLine("Card: " + playersHand[i] + " Card Val: " + playersHand[i].val);
+                
                 if(playersHand[i].val.ToString() == cardVal)
                 {
-                    //System.Console.WriteLine("HERE!");
+                 
                     newCardList.Add(playersHand[i]);
-                    //System.Console.WriteLine("Added: " + playersHand[i]);
+                    
                     playersHand.Remove(playersHand[i]);
-                    //System.Console.WriteLine("Removed: " + playersHand[i]);
+                   
                     doesHandContain = true;
                 }
             }
@@ -51,24 +39,21 @@ namespace ConsoleApplication {
         public void addToList(List<Card> l)
         {
             playersHand.AddRange(l);
-            // foreach(var i in l)
-            // {
-            //     playersHand.Add(i);
-            // }
+         
         }
 
         // Pick the to most card from the deck and add it to the players cards
-        public void DrawFromDeck(Deck currentDeck)
-        {
-            if(currentDeck.getCardCount() >= 0)
-            {
-                playersHand.Add(currentDeck.SelectTopMost());
-            }
-            else
-            {
-                System.Console.WriteLine("Thats too many cards to draw!!!");
-            }
-        }
+        // public void DrawFromDeck(Deck currentDeck)
+        // {
+        //     if(currentDeck.getCardCount() >= 0)
+        //     {
+        //         playersHand.Add(currentDeck.SelectTopMost());
+        //     }
+        //     else
+        //     {
+        //         System.Console.WriteLine("Thats too many cards to draw!!!");
+        //     }
+        // }
 
         // Pick a certain number of cards from the deck
         public void DrawFromDeck(Deck currentDeck, int num)
@@ -103,6 +88,16 @@ namespace ConsoleApplication {
         public int numOfCardsInHand()
         {
             return playersHand.Count;
+        }
+
+        public string shownumber()
+        {
+            string str = "";
+            foreach(var card in playersHand)
+            {
+                str += card.val + ", ";
+            }
+            return str;
         }
 
         // Prints out all cards in the players hands

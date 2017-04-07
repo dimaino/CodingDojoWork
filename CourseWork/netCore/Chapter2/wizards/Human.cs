@@ -27,16 +27,23 @@ public class Human
         dexterity = dex;
         health = hp;
     }
-    public void attack(object obj)
+    public void attack(object o)
     {
-        Human enemy = obj as Human;
-        if(enemy == null)
+        if(o is Spider)
         {
-            Console.WriteLine("Failed Attack");
+            Spider target = o as Spider;
+            target.health -= 10;
+            System.Console.WriteLine("Attack a spider named " + target.name);
+        }
+        else if(o is Zombie)
+        {
+            Zombie target = o as Zombie;
+            target.health -= 10;
+            System.Console.WriteLine("Attack a zombie named " + target.name);
         }
         else
         {
-            enemy.health -= strength * 5;
+            System.Console.WriteLine("Failed to attack!");
         }
     }
 

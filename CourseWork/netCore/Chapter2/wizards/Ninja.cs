@@ -20,38 +20,50 @@ public class Ninja : Human
 
     public void steal(object o)
     {
-        if(o is Human)
-        {
-            Human target = o as Human;
-            int oldhealth = target.health;
-            target.health -= 10;
-            int damage = oldhealth - target.health;
-            System.Console.WriteLine("Ninja Attacked a Human Named: " + target.name + " who did " + damage + " damage current health " + target.health + " Starting health was " + oldhealth);
-        }
-        else if(o is Ninja)
-        {
-            Ninja target = o as Ninja;
-            int oldhealth = target.health;
-            target.health -= 10;
-            int damage = oldhealth - target.health;
-            System.Console.WriteLine("Ninja Attacked a Ninja Named: " + target.name + " who did " + damage + " damage current health " + target.health + " Starting health was " + oldhealth);
+        // if(o is Human)
+        // {
+        //     Human target = o as Human;
+        //     int oldhealth = target.health;
+        //     target.health -= 10;
+        //     int damage = oldhealth - target.health;
+        //     System.Console.WriteLine("Ninja Attacked a Human Named: " + target.name + " who did " + damage + " damage current health " + target.health + " Starting health was " + oldhealth);
+        // }
+        // else if(o is Ninja)
+        // {
+        //     Ninja target = o as Ninja;
+        //     int oldhealth = target.health;
+        //     target.health -= 10;
+        //     int damage = oldhealth - target.health;
+        //     System.Console.WriteLine("Ninja Attacked a Ninja Named: " + target.name + " who did " + damage + " damage current health " + target.health + " Starting health was " + oldhealth);
             
-        }
-        else if(o is Samurai)
+        // }
+        // else if(o is Samurai)
+        // {
+        //     Samurai target = o as Samurai;
+        //     int oldhealth = target.health;
+        //     target.health -= 10;
+        //     int damage = oldhealth - target.health;
+        //     System.Console.WriteLine("Ninja Attacked a Samurai Named: " + target.name + " who did " + damage + " damage current health " + target.health + " Starting health was " + oldhealth);
+        // }
+        // else if(o is Wizard)
+        // {
+        //     Wizard target = o as Wizard;
+        //     int oldhealth = target.health;
+        //     target.health -= 10;
+        //     int damage = oldhealth - target.health;
+        //     System.Console.WriteLine("Ninja Attacked a Wizard Named: " + target.name + " who did " + damage + " damage current health " + target.health + " Starting health was " + oldhealth);
+        // }
+        if(o is Spider)
         {
-            Samurai target = o as Samurai;
-            int oldhealth = target.health;
+            Spider target = o as Spider;
             target.health -= 10;
-            int damage = oldhealth - target.health;
-            System.Console.WriteLine("Ninja Attacked a Samurai Named: " + target.name + " who did " + damage + " damage current health " + target.health + " Starting health was " + oldhealth);
+            System.Console.WriteLine("Attack a spider named " + target.name);
         }
-        else if(o is Wizard)
+        if(o is Zombie)
         {
-            Wizard target = o as Wizard;
-            int oldhealth = target.health;
+            Zombie target = o as Zombie;
             target.health -= 10;
-            int damage = oldhealth - target.health;
-            System.Console.WriteLine("Ninja Attacked a Wizard Named: " + target.name + " who did " + damage + " damage current health " + target.health + " Starting health was " + oldhealth);
+            System.Console.WriteLine("Attack a zombie named " + target.name);
         }
         else
         {

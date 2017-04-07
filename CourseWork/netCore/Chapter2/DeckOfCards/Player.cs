@@ -65,6 +65,13 @@ namespace ConsoleApplication {
                     playersHand.Add(currentDeck.SelectTopMost());
                 }
             }
+            else if(currentDeck.getCardCount() > 0)
+            {
+                for(int i = 0; i < currentDeck.getCardCount(); i++)
+                {
+                    playersHand.Add(currentDeck.SelectTopMost());
+                }
+            }
             else
             {
                 System.Console.WriteLine("Thats too many cards to draw!!!");
@@ -103,11 +110,12 @@ namespace ConsoleApplication {
         // Prints out all cards in the players hands
         public override string ToString()
         {
-            string str = "";
+            string str = "[";
             foreach(var card in playersHand)
             {
                 str += card + ", ";
             }
+            str += "]";
             return str;
         }
     }

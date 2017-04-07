@@ -12,41 +12,53 @@ public class Samurai : Human
 
     public void death_blow(object o)
     {
-        if(o is Human)
+        // if(o is Human)
+        // {
+        //     Human target = o as Human;
+        //     if(target.health <= 50)
+        //     {
+        //         target.health = 0;
+        //         System.Console.WriteLine(target.name + " just got reduced to 0 health :(");
+        //     }
+        // }
+        // else if(o is Ninja)
+        // {
+        //     Ninja target = o as Ninja;
+        //     if(target.health <= 50)
+        //     {
+        //         target.health = 0;
+        //         System.Console.WriteLine(target.name + " just got reduced to 0 health :(");
+        //     }
+        // }
+        // else if(o is Samurai)
+        // {
+        //     Samurai target = o as Samurai;
+        //     if(target.health <= 50)
+        //     {
+        //         target.health = 0;
+        //         System.Console.WriteLine(target.name + " just got reduced to 0 health :(");
+        //     }
+        // }
+        // else if(o is Wizard)
+        // {
+        //     Wizard target = o as Wizard;
+        //     if(target.health <= 50)
+        //     {
+        //         target.health = 0;
+        //         System.Console.WriteLine(target.name + " just got reduced to 0 health :(");
+        //     }
+        // }
+        if(o is Spider)
         {
-            Human target = o as Human;
-            if(target.health <= 50)
-            {
-                target.health = 0;
-                System.Console.WriteLine(target.name + " just got reduced to 0 health :(");
-            }
+            Spider target = o as Spider;
+            target.health -= 10;
+            System.Console.WriteLine("Attack a spider named " + target.name);
         }
-        else if(o is Ninja)
+        else if(o is Zombie)
         {
-            Ninja target = o as Ninja;
-            if(target.health <= 50)
-            {
-                target.health = 0;
-                System.Console.WriteLine(target.name + " just got reduced to 0 health :(");
-            }
-        }
-        else if(o is Samurai)
-        {
-            Samurai target = o as Samurai;
-            if(target.health <= 50)
-            {
-                target.health = 0;
-                System.Console.WriteLine(target.name + " just got reduced to 0 health :(");
-            }
-        }
-        else if(o is Wizard)
-        {
-            Wizard target = o as Wizard;
-            if(target.health <= 50)
-            {
-                target.health = 0;
-                System.Console.WriteLine(target.name + " just got reduced to 0 health :(");
-            }
+            Zombie target = o as Zombie;
+            target.health -= 10;
+            System.Console.WriteLine("Attack a zombie named " + target.name);
         }
         else
         {

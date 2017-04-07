@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Hello!</title>
+    </head>
+    <body>
+        @{
+            DateTime currentTime = DateTime.Now;
+            string currDate = String.Format("{0:MMM d, yyyy}", currentTime);
+            string currTime = String.Format("{0:t}", currentTime);
+        }
+        <h1>The current time and date:</h1>
+        <p>@currDate</p>
+        <p>@currTime</p>
+    </body>
+</html>

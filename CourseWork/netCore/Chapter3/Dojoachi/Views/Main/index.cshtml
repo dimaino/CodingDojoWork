@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Hello!</title>
+        <script src="~/js/index.js"></script>
+    </head>
+    <body>
+        <p>Fullness: @ViewBag.achi.fullness</p>
+        <p>Happiness: @ViewBag.achi.happiness</p>
+        <p>Meals: @ViewBag.achi.meals</p>
+        <p>Energy: @ViewBag.achi.energy</p>
+        <p>Achi is feeling: </p><img src="@ViewBag.theFeelsOfAchi" />
+        <p>Rating The Owner: @ViewBag.ratingTheOwner</p>
+        <p>Game Status: @ViewBag.theLoop</p>
+        @{
+            if(ViewBag.theLoop == "notLosing")
+            {
+                <form action="/actions" method="post">
+                    <input type="submit" value="Feed" name="action">
+                </form>
+                <form action="/actions" method="post">
+                    <input type="submit" value="Play" name="action">
+                </form>
+                <form action="/actions" method="post">
+                    <input type="submit" value="Work" name="action">
+                </form>
+                <form action="/actions" method="post">
+                    <input type="submit" value="Sleep" name="action">
+                </form>
+            }
+            else if(ViewBag.theLoop == "Losing")
+            {
+                <a href="/reset" method="post"><button>Reset!!!</button></a>
+            }
+        }
+    </body>
+</html>

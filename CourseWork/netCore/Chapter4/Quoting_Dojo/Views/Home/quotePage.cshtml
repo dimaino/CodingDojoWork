@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Here are some awesome quotes!</h1>
+@{
+    string str = "\"";
+    for(int i = 0; i < @ViewBag.users.Count; i++)
+    {
+        <h3>@str@ViewBag.users[i].quote@str</h3>
+        <h3>-@ViewBag.users[i].name - @ViewBag.users[i].created</h3>
+        <hr>
+    }
+}
+

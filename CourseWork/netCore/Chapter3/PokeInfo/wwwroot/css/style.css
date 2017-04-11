@@ -1,0 +1,23 @@
+#pictureSize {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.card.medium {
+    display: inline-block;
+    width: 400px;
+    margin: auto;
+    margin-right: 2%;
+    margin-left: 2%;
+    vertical-align: top;
+    margin-bottom: 4%;
+}
+
+#halfSize {
+    margin: auto;
+    width: 50%;
+    margin-top: 200px;
+}

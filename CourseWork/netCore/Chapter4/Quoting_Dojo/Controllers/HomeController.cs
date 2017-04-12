@@ -14,6 +14,10 @@ namespace Quoting_Dojo.Controllers
         [Route("")]
         public IActionResult Index(List<string> errors)
         {
+            
+            
+
+
             ViewBag.ErrorList = errors;
             return View("index");
         }
@@ -65,5 +69,14 @@ namespace Quoting_Dojo.Controllers
 
             return View("quotePage");
         }
+
+        // [HttpGet]
+        // [Route("show")]
+        // public IActionResult Show()
+        // {
+        //     User CurrentUser = _userFactory.GetUserById((int)HttpContext.Session.GetInt32("CurrUserId"));
+        //     ViewBag.User = CurrentUser;
+        //     return View();
+        // }
     }
 }

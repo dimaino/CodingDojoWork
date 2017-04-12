@@ -1,0 +1,9 @@
+@{
+    ViewData["Title"] = "Success Page";
+}
+<h1>SUCCESS!</h1>
+<h3>@ViewBag.currentUser[0]["id"]</h3>
+
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>

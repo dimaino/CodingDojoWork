@@ -1,0 +1,28 @@
+@{
+    ViewData["Title"] = "Account Creation";
+}
+<a href="/logout">Logout</a>
+<h1>Account Setup</h1>
+<br>
+<h1>Back to Accounts</h1>
+<a href="/backToAccounts">Back to Accounts</a>
+
+<br>
+@{
+    if(@ViewBag.errors != null)
+    {
+        foreach(var i in @ViewBag.errors)
+        {
+            <p>@i</p>
+        }
+    }
+}
+<br>
+<h4>Just enter a balance to start your account creation</h4>
+<br>
+<form action="/makeAccount" method="post">
+    Balance of new Account: <input type="text" name="Balance">
+    Type of Account: <input type="text" name="Type">
+    <input type="submit" value="Create Account!">
+</form>
+

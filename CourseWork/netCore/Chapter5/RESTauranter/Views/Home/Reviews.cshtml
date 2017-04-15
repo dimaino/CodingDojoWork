@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Reviews";
+}
+
+@{
+    foreach(var i in @ViewBag.allReviews)
+    {
+        if(@i.Stars == 1)
+        {
+            <p>Reviewer Name: @i.Restaurant_Name       @i.Stars star</p>
+        }
+        else
+        {
+            <p>Reviewer Name: @i.Restaurant_Name       @i.Stars stars</p>
+        }
+        <p>Reviewer: @i.Reviewer_Name, @i.created_at</p>
+        <p>@i.Review</p>
+        <hr>
+    }
+}

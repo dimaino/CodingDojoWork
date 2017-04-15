@@ -1,0 +1,42 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Default Blank Page~</h1>
+<table>
+@{
+    <tr>
+        <td>ID</td>
+        <th>Trail Name</th>
+        <th>Description</th>
+        <th>Trail Length</th>
+        <th>Elevation Change</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Created_at</th>
+    </tr>
+    foreach(var i in @ViewBag.trails)
+    {
+        <tr>
+            <td>@i.Id</td>
+            <td><a href="/trails/@i.Id">@i.Trail_Name</a></td>
+            <td>@i.Description</td>
+            <td>@i.Trail_Length</td>
+            <td>@i.Elevation_Change</td>
+            <td>@i.Latitude</td>
+            <td>@i.Longitude</td>
+            <td>@i.created_at</td>
+        </tr>
+    }
+}
+</table>
+
+<form action="/orderLength" method="get">
+    <input type="submit" value="Sort by Length">
+</form>
+<form action="/orderElevation" method="get">
+    <input type="submit" value="Sort by Elevation Change">
+</form>
+
+<form action="/someNewTrail" method="get">
+    <input type="submit" value="Add a new Trail">
+</form>

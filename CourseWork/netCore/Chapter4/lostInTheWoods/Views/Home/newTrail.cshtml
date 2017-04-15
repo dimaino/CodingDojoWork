@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Add A New Trail</h1>
+
+@{
+    if(@ViewBag.errors != null)
+    {
+        foreach(var i in @ViewBag.errors)
+        {
+            <p>@i</p>
+        }
+    }
+}
+<a href="/goHome">Home</a>
+<form action="/createNew" method="post">
+    Trail Name: <input type="text" name="Trail_Name">
+    Description: <input type="text" name="Description">
+    Trail Length: <input type="text" name="Trail_Length">
+    Elevation Change: <input type="text" name="Elevation_Change">
+    Longitude: <input type="text" name="Latitude">
+    Latitude: <input type="text" name="Longitude">
+    <input type="submit" value="Create Record!">
+</form>

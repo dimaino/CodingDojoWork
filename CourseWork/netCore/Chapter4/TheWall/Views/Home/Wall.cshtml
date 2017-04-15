@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "The Wall Page";
+}
+<h1>CodingDojo Wall!</h1>
+<h3>Welcome @ViewBag.currentUser[0]["first_name"]</h3>
+
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+<hr>
+
+<form action="addMessage" method="post">
+    <textarea name="message"></textarea>
+    <input type="submit" value="Post Message">
+</form>
+
+@{
+    foreach(var i in @ViewBag.allMessages)
+    {
+        int id = i["id"];
+        <p>@i["messages"]</p>
+        if(i["user_id"] == @ViewBag.currentUser[0]["id"])
+        {
+            <form action="deleteMessage/@id" method="post">
+                <input type="submit" value="Delete dis shit">
+            </form>
+        }
+        @foreach(var j in @ViewBag.allComments)
+        {
+            if(j["message_id"] == i["id"])
+            {
+                <p>@j["comment"]</p>
+                
+            }
+        }
+        
+        <form action="addComment/@id" method="post">
+            <textarea name="comment"></textarea>
+            <input type="submit" value="Post Comment">
+        </form>
+
+
+        
+    }
+}

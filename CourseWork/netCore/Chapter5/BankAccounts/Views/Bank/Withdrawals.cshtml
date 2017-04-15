@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Account Creation";
+}
+<a href="/logout">Logout</a>
+<h1>Account Setup</h1>
+<br>
+<h1>Back to Accounts</h1>
+<a href="/backToAccounts">Back to Accounts</a>
+<br>
+<a href="/viewAccount/@ViewBag.account.id">Back to Account</a>
+<br>
+@{
+    if(@ViewBag.errors != null)
+    {
+        foreach(var i in @ViewBag.errors)
+        {
+            <p>@i</p>
+        }
+    }
+}
+<br>
+@{
+    if(@ViewBag.account != null)
+    {
+        <h3>@ViewBag.account.Number</h3>
+        <h3>@ViewBag.account.Balance</h3>
+    }
+}
+
+<form action="/makeWithdrawal" method="post">
+    <input type="text" name="amount">
+    <input type="submit" value="Make Withdrawal">
+</form>

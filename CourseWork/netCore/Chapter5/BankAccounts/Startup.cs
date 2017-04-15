@@ -4,8 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
+using BankAccounts.Models;
+using MySQL.Data.EntityFrameworkCore.Extensions;
 
-namespace TheWall
+namespace BankAccounts
 {
     
     public class Startup
@@ -18,7 +20,7 @@ namespace TheWall
             services.AddMvc();
             services.AddSession();
             services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
-            services.AddScoped<DbConnector>();
+            services.AddDbContext<MasterContext>(options => options.UseMySQL(Configuration["DBInfo:ConnectionString"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

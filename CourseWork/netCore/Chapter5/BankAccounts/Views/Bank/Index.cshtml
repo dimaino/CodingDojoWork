@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Back Account";
+}
+<h1>Bank Stuff</h1>
+<br>
+<br>
+<a href="/logout">Logout</a>
+<br>
+<p>@ViewBag.currentUser.First_Name @ViewBag.currentUser.Last_Name</p>
+
+
+<h4>Please open an account</h4>
+<br>
+<form action="/accountSetupPage" method="get">
+    <input type="submit" value="Go to Account setup page">
+</form>
+<br>
+
+<br>
+<br>
+<h4>Here is your account...</h4>
+@{
+    if(@ViewBag.allUsersAccounts != null)
+    {
+        foreach(var i in @ViewBag.allUsersAccounts)
+        {
+            for(int k = 0; k < i.Accounts.Count; k++)
+            {
+                <p>Account Number: <a href="/viewAccount/@i.Accounts[k].id">@i.Accounts[k].Number</a> - Account Type:  - Balance: @i.Accounts[k].Balance</p>
+
+            }
+            
+        }
+    }
+}

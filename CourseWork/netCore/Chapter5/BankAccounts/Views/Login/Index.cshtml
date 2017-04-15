@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Login Page";
+}
+<h1>Login</h1>
+<br>
+@{
+    if(@ViewBag.errors != null)
+    {
+        foreach(var i in @ViewBag.errors)
+        {
+            <p>@i</p>
+        }
+    }
+}
+<br>
+<form action="loginUser" method="post">
+    Email Address: <input type="text" name="Email">
+    Password: <input type="text" name="Password">
+    <input type="submit" value="Submit">
+</form>
+
+<a href="goToRegister">Need to Register?</a>

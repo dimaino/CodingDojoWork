@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    if(@ViewBag.errors != null)
+    {
+        foreach(var i in @ViewBag.errors)
+        {
+            <p>@i</p>
+        }
+    }
+}
+
+<h1>Write a new Review:</h1>
+<form action="/addReviews" method="post">
+    Reviewer Name: <input type="text" name="Reviewer_Name">
+    Restaurant Name: <input type="text" name="Restaurant_Name">
+    Review: <textarea name="Review"></textarea>
+    Date of Visit: <input type="date" name="Date_Visited">
+    Starts: <input type="number" name="Stars">
+    <input type="submit" value="Submit">
+</form>
+
+
+
+

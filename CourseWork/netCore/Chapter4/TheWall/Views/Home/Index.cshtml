@@ -1,5 +1,62 @@
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Login & Registeration Page";
 }
-<h1>Default Blank Page~</h1>
-<p>Get to adding stuff</p>
+<h1>LOGIN</h1>
+
+@{
+    if(ViewBag.errors != null)
+    {
+        foreach(var i in ViewBag.errors)
+        {
+            <p>@i</p>
+        }
+    }
+    if(ViewBag.noUser != null)
+    {
+
+        <p>@ViewBag.noUser</p>
+    }
+}
+
+<form action="/registerProcess" method="post">
+    <input type="text" name="firstName">
+    <input type="text" name="lastName">
+    <input type="text" name="email">
+    <input type="text" name="password">
+    <input type="text" name="passwordConfirmation">
+    <button type="submit">Login</button>
+</form>
+
+
+
+
+
+<h1>REGISTRATION</h1>
+
+<form action="/loginProcess" method="post">
+    <input type="text" name="email">
+    <input type="text" name="password">
+    <button type="submit">Register</button>
+</form>
+
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Hashed Password</th>
+    </tr>
+    
+    @foreach(var i in ViewBag.allUsers)
+    {
+        <tr>
+        <td>@i["id"]</td>
+        <td>@i["first_name"]</td>
+        <td>@i["last_name"]</td>
+        <td>@i["email"]</td>
+        <td>@i["password"]</td>
+        </tr>
+    }
+</table>

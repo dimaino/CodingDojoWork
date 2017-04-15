@@ -4,8 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
+using lostInTheWoods.Factory;
 
-namespace TheWall
+namespace lostInTheWoods
 {
     
     public class Startup
@@ -18,7 +19,7 @@ namespace TheWall
             services.AddMvc();
             services.AddSession();
             services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
-            services.AddScoped<DbConnector>();
+            services.AddScoped<TrailFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Register</h1>
+<br>
+@{
+    if(@ViewBag.errors != null)
+    {
+        foreach(var i in @ViewBag.errors)
+        {
+            <p>@i</p>
+        }
+    }
+}
+<br>
+<form action="registerUser" method="post">
+    First Name: <input type="text" name="First_Name">
+    Last Name: <input type="text" name="Last_Name">
+    Email Address: <input type="text" name="Email">
+    Password: <input type="text" name="Password">
+    Password Confimation <input type="text" name="Password_Confirmation">
+    <input type="submit" value="Submit">
+</form>
+
+<a href="goToLogin">Already Registered?</a>

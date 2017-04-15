@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+      <a href="/goHome">Home</a>
+<h1>@ViewBag.currentTrail.Trail_Name</h1>
+<h3>Description</h3>
+<p>@ViewBag.currentTrail.Description</p>
+<h3>Trail Length</h3>
+<p>@ViewBag.currentTrail.Trail_Length</p>
+<h3>Elevation Change</h3>
+<p>@ViewBag.currentTrail.Elevation_Change</p>
+<br>
+<h5>Longitude - @ViewBag.currentTrail.Longitude<h5>
+<h5>Latitude - @ViewBag.currentTrail.Latitude</h5>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: @ViewBag.currentTrail.Latitude, lng: @ViewBag.currentTrail.Longitude};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMyWQLaQo7Vp5A6NKp0coPulBLGaH6qkg&callback=initMap">
+    </script>
+  </body>
+</html>
+
+

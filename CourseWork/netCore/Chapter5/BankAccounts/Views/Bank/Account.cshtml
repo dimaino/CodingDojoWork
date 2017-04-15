@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "Account";
+}
+
+<a href="/logout">Logout</a>
+<br>
+<h1>Back to Accounts</h1>
+<a href="/backToAccounts">Back to Accounts</a>
+
+<h1>This is your account!</h1>
+@{
+    if(@ViewBag.account != null)
+    {
+        <h3>@ViewBag.account.Number</h3>
+        <h3>@ViewBag.account.Balance</h3>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+            //foreach(var i in @ViewBag.Deposits)
+            <!--{
+                <p>@i</p>
+            //}
+        </table>
+    }
+}
+
+<form action="/goToDepositPage" method="get">
+    <input type="submit" value="Wanna make a deposit?">
+</form>
+
+<form action="/goToWithdrawalPage" method="get">
+    <input type="submit" value="Wanna make a withdrawal?">
+</form>

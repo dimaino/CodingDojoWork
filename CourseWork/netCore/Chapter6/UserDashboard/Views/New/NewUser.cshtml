@@ -1,0 +1,12 @@
+@{
+    ViewData["Title"] = "Login and Registration Page";
+}
+<h2>Add a new user</h2>
+<form action="/addUser" method="POST">
+    First Name: <input type="text" name="First_Name">
+    Last Name: <input type="text" name="Last_Name">
+    Email: <input type="text" name="Email">
+    Password: <input type="text" name="Password">
+    Password Confirmation: <input type="text" name="Password_Confirmation">
+    <input type="submit" value="Create">
+</form>

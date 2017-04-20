@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Create Wedding";
+}
+<form asp-controller="Wedding" asp-action="Logout" asp-antiforgery="true" method="POST">
+    <button type="submit">Logout</button>
+</form>
+<a href="weddingPage">Plan a Wedding?</a>
+@model WeddingPlanning.Models.WeddingViewModel
+@{
+    if(@ViewBag.errors != null)
+    {
+        foreach(var i in @ViewBag.errors)
+        {
+            <p>@i</p>
+        }
+    }
+}
+<form asp-controller="Wedding" asp-action="CreateWedding" asp-antiforgery="true" method="POST">
+    <select asp-for="Groom_Name" asp-items="@ViewBag.loggedInUser">
+    </select>
+    <select asp-for="Bride_Name" asp-items="@ViewBag.allUsers">
+    </select>
+    Wedding Date: <input asp-for="Wedding_Date">
+    <button type="submit">Create Wedding</button>
+</form>

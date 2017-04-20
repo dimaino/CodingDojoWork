@@ -1,0 +1,53 @@
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model WeddingPlanning.Models.CombinedLoginAndRegViewModel
+
+<h1>Login</h1>
+<br>
+@{
+    if(@ViewBag.errors != null)
+    {
+        foreach(var i in @ViewBag.errors)
+        {
+            <p>@i</p>
+        }
+    }
+}
+<br>
+<form asp-controller="LoginReg" asp-action="LoginRegister" asp-antiforgery="true" method="POST">
+    Email Address: <input asp-for="Login.Email">
+    Password: <input asp-for="Login.Password">
+    <button type="submit">Login</button>
+</form>
+<br>
+<br>
+<h1>Register</h1>
+<br>
+<form asp-controller="LoginReg" asp-action="LoginRegister" asp-antiforgery="true" method="POST">
+    First Name: <input asp-for="Register.First_Name">
+    Last Name: <input asp-for="Register.Last_Name">
+    Email Address: <input asp-for="Register.Email">
+    Password: <input asp-for="Register.Password">
+    Password Confimation <input asp-for="Register.Password_Confirmation">
+    <button type="submit">Register</button>
+</form>
+<br>
+<br>
+<br>
+<table>
+    <tr>
+        <th>id</th>
+        <th>Username</th>
+        <th>Password</th>
+    </tr>
+    @foreach(var i in @ViewBag.allUsers)
+    {
+        <tr>
+            <td>@i.id</td>
+            <td>@i.Email</td>
+            <td>@i.Password</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,78 @@
+@{
+    ViewData["Title"] = "Wedding Planner Page";
+}
+<h1>Welcome,  @ViewBag.loggedInUser.First_Name</h1>
+<br>
+<br>
+<form asp-controller="Wedding" asp-action="Logout" asp-antiforgery="true" method="POST">
+    <button type="submit">Logout</button>
+</form>
+<br>
+@{
+    if(@ViewBag.errors != null)
+    {
+        foreach(var i in @ViewBag.errors)
+        {
+            <p>@i</p>
+        }
+    }
+}
+<br>
+<br>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Action</th>
+    </tr>
+    @{
+        if(@ViewBag.AllWeddings != null)
+        {
+            foreach( var i in @ViewBag.AllWeddings)
+            {
+                
+                <tr>
+                    <td><a asp-controller="Wedding" asp-action="showCurrentWedding" asp-route-id="@i.id">@i.Groom_Name's and @i.Bride_Name's wedding</a></td>
+                    <td>@i.Wedding_Date</td>
+                    <td>
+
+                        @if(@i.user_id == @ViewBag.loggedInUser.id)
+                        {
+                            <form asp-controller="Wedding" asp-action="deleteWedding" asp-route-id="@i.id" asp-antiforgery="true" method="POST">
+                                <button type="submit">Delete</button>
+                            </form>
+                        }
+                        @bool check1 = true; 
+                        @foreach(var k in @ViewBag.AllGuests)
+                        {
+                            if(check1 == true && k.wedding_id == i.id && k.user_id == @ViewBag.loggedInUser.id)
+                            {
+                                check1 = false;
+                                <form asp-controller="Wedding" asp-action="tryRSVP" asp-route-id="@i.id" asp-antiforgery="true" method="POST">
+                                        <button type="submit">RSVP</button>
+                                    </form>
+                            }
+                            @else if(check1 == true && k.wedding_id != i.id && k.user_id != @ViewBag.loggedInUser.id)
+                            {
+                                check1 = false;
+                                <form asp-controller="Wedding" asp-action="tryRSVP" asp-route-id="@i.id" asp-antiforgery="true" method="POST">
+                                        <button type="submit">UNRSVP</button>
+                                    </form>
+                            }
+                            
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    }
+</table>
+<br>
+
+<a href="weddingPage">Plan a Wedding?</a>
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "Dashboard Page";
+}
+<h5><a href="/dashboard">Dashboard</a></h5>
+<h5>Products</h5>
+<h5><a href="/orders">Orders</a></h5>
+<h5><a href="/customers">Customers</a></h5>
+<h5><a href="/settings">Settings</a></h5>
+<hr>
+<br>
+<h4>Add a new product</h4>
+<form action="/addProduct" method="POST">
+    Product Name: <input type="text" name="Product_Name">
+    Image url: <input type="text" name="Image_Url">
+    Descriptiton: <textarea name="Description"></textarea>
+    Quantity: <input type="number" name="Quantity">
+    <input type="submit" value="Create">
+</form>
+
+@{
+    foreach(var i in @ViewBag.allProducts)
+    {
+        <br>
+        <p>@i.Product_Name</p>
+        <p>@i.Image_Url</p>
+        <p>@i.Description</p>
+        <p>@i.Quantity</p>
+        <br>
+    }
+}

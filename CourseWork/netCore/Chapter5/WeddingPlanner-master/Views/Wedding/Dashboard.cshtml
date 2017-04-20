@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard - Wedding Planner</title>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <div class="topbar">
+        <h1 class="title-text">Welcome to the Wedding Planner</h1>
+        <a href="logout"><button class="btn btn-default btn-xs logout-btn">Logout</button></a>
+      </div>
+      <hr>
+      <div class="weddings">
+        <table class="table-hover" width="100%">
+          <tr>
+            <th>Wedding</th>
+            <th>Date</th> 
+            <th>Guest</th>
+            <th>Action</th> 
+          </tr>
+          @{
+            foreach(var entry in ViewBag.AllWeddings){
+            <tr>
+              <td><a href="wedding/@entry.id">@entry.Wedder1_Name & @entry.Wedder2_Name</a></td> 
+              <td>@entry.Wedding_Date.ToString("MMMM d, yyyy")</td>
+              <td>@entry.Guests.Count</td> 
+              <td>
+            @{
+              bool attending = false;
+
+
+              if (@entry.user_id == @ViewBag.User.id) {
+                <a href="delete/@entry.id"><button class="btn btn-warning btn-s">DELETE</button></a>
+              } 
+              else {
+                foreach (var guest in @entry.Guests) {
+                  if (@guest.user_id == @ViewBag.User.id) {
+                    attending = true;
+                  }
+                }
+                if(attending == true) {
+                  <a href="unrsvp/@entry.id"><button class="btn btn-primary btn-s">Un-RSVP</button></a>
+                }
+                else {
+                  <a href="rsvp/@entry.id"><button class="btn btn-primary btn-s">RSVP</button></a>
+                }
+              }
+            }
+              </td> 
+            </tr>
+            }
+          }
+        </table>
+      </div>
+      <br>
+      <a asp-controller="Wedding" asp-action="NewWedding"><button class="btn btn-success btn-s btn-block btn-colored form-center">New Wedding</button></a>
+    </div>
+  </body>
+</html>

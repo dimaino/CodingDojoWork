@@ -1,0 +1,61 @@
+@{
+    ViewData["Title"] = "Login and Registration Page";
+}
+@model UserDashboard.Models.RegistrationViewModel
+<div class="login-container">
+    <h1 class="title">User Dashboard!</h1>
+    <hr>
+    <div class="errors">
+        @{
+            if (ViewBag.Errors != null)
+            {
+                foreach(var error in ViewBag.Errors)
+                {
+                    <p class="alert alert-warning">@error</p>
+                }
+            }
+        }
+    </div>
+    <div class="form-containers">
+        @Html.Partial("LoginPartial")
+        <div class="register">
+            <h3 class="form-center-title">Register</h3>
+            <form asp-controller="LoginRegistration" asp-action="Register" asp-antiforgery="true" method="POST">
+                <h5 class="form-titles">First Name: </h5><input class="form-control" asp-for="First_Name">
+                <h5 class="form-titles">Last Name: </h5><input class="form-control" asp-for="Last_Name">
+                <h5 class="form-titles">Email: </h5><input class="form-control" asp-for="Email">
+                <h5 class="form-titles">Password: </h5><input class="form-control" asp-for="Password">
+                <h5 class="form-titles">Confirm Password: </h5><input class="form-control" asp-for="Password_Confirmation">
+                <br>
+                <input class="btn btn-success login-btn btn-block btn-colored" type="submit" value="Register"><br>
+            </form>
+        </div>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>user auth level</th>
+                <th>created_at</th>
+                <th>updated_at</th>
+            </tr>
+            @{
+                foreach(var i in ViewBag.allUsers)
+                {
+                    <tr>
+                        <td>@i.id</td>
+                        <td>@i.First_Name</td>
+                        <td>@i.Last_Name</td>
+                        <td>@i.Email</td>
+                        <td>@i.auth_level</td>
+                        <td>@i.created_at</td>
+                        <td>@i.updated_at</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>

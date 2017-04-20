@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Login and Registration Page";
+}
+<div class="dashboard-container">
+    <div class="topbar">
+        <h1 class="title-text">Welcome to the Thing, @ViewBag.CurrentUser.First_Name @ViewBag.CurrentUser.Last_Name</h1>
+        <a asp-controller="New" asp-action="Logout"><button class="btn btn-default btn-xs logout-btn">Logout</button></a>
+    </div>
+    <hr>
+    <h3>All Users</h3>
+    @if(ViewBag.CurrentUser.auth_level == 9)
+    {
+        <a href="/newUser">Add new</a>
+    }
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>email</th>
+            <th>created_at</th>
+            <th>user_level</th>
+            @if(ViewBag.CurrentUser.auth_level == 9)
+            {
+                <th>action</th>
+            }
+        </tr>
+        @{
+            foreach(var i in ViewBag.allUsers)
+            {
+                <tr>
+                    <td>@i.id</td>
+                    <td>@i.First_Name @i.Last_Name</td>
+                    <td>@i.Email</td>
+                    <td>@i.created_at</td>
+                    <td>@i.auth_level</td>
+                    @if(ViewBag.CurrentUser.auth_level == 9)
+                    {
+                        <td><a href="">Edit</a> <a href="">Remove</a></td>
+                    }
+                </tr>
+            }
+        }
+    </table>
+</div>

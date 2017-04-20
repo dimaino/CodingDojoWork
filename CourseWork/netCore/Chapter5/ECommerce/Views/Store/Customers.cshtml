@@ -1,0 +1,54 @@
+@{
+    ViewData["Title"] = "Customers Page";
+}
+<h5><a href="/dashboard">Dashboard</a></h5>
+<h5><a href="/products">Products</a></h5>
+<h5><a href="/orders">Orders</a></h5>
+<h5>Customers</h5>
+<h5><a href="/settings">Settings</a></h5>
+<hr>
+<br>
+@{
+    if (ViewBag.errors_list != null)
+    {
+        foreach(var error in ViewBag.errors_list)
+        {
+            <p class="alert alert-warning">@error</p>
+        }
+    }
+}
+<br>
+<h4><u>Add a new customer</u></h4>
+<form action="/addCustomer" method="POST">
+    Customer Name: <input type="text" name="Customer_Name"> 
+    <input type="submit" value="Add">
+</form>
+
+<table>
+    <tr>
+        <th>Customer Name</th>
+        <th>Created Date</th>
+        <th>Actions</th>
+    </tr>
+@{
+    if(@ViewBag.allCustomers != null)
+    {
+        foreach(var i in @ViewBag.allCustomers)
+        {
+            <tr>
+                <td>@i.Customer_Name</td>
+                <td>@i.created_at</td>
+                <td>
+                    <form action="/deleteCustomer/@i.id" method="POST">
+                        <input type="submit" value="Delete"> 
+                    </form>
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <p>You currently have no customers!</p>
+    }
+}
+</table>

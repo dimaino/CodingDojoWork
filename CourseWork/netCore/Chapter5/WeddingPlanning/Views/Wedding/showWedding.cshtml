@@ -1,0 +1,28 @@
+@{
+    ViewData["Title"] = "Show Wedding";
+}
+<form asp-controller="Wedding" asp-action="Logout" asp-antiforgery="true" method="POST">
+    <button type="submit">Logout</button>
+</form>
+<a href="weddingPage">Plan a Wedding?</a>
+<h1>@ViewBag.currWedding.Groom_Name and @ViewBag.currWedding.Bride_Name Wedding</h1>
+<h3>Wedding Date: @ViewBag.currWedding.Wedding_Date</h3>
+
+<h3>@ViewBag.currWedding.Groom_Name's Guests</h3>
+@{
+    foreach(var i in @ViewBag.weddingGuests)
+    {
+        foreach(var k in i.WeddingGuest)
+        {
+            <p>@k.user_id</p>
+        }
+    }
+}
+<h4>name 1</h4>
+<h4>name 2</h4>
+<h4>name 3</h4>
+
+
+<h3>@ViewBag.currWedding.Bride_Name's Guests</h3>
+<h4>name 1</h4>
+<h4>name 2</h4>

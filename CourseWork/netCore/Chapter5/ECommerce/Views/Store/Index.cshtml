@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Dashboard Page";
+}
+<h5>Dashboard</h5>
+<h5><a href="/products">Products</a></h5>
+<h5><a href="/orders">Orders</a></h5>
+<h5><a href="/customers">Customers</a></h5>
+<h5><a href="/settings">Settings</a></h5>
+<hr>
+<!-- Show 5 Items -->
+<table>
+    <tr>
+        <th>Image Url</th>
+        <th>Product</th>
+        <th>Quanitity Left</th>
+    </tr>
+    @foreach(var i in @ViewBag.someProducts)
+    {
+        <tr>
+            <td>@i.Image_Url</td>
+            <td>@i.Product_Name</td>
+            <td>@i.Quantity</td>
+        </tr>
+    }
+</table>
+<!-- Show last 3 recent orders -->
+@foreach(var i in @ViewBag.someOrders)
+{
+    <p>@i.Customer.Customer_Name purchased @i.Quantity @i.Product.Product_Name... (@i.TimePast())</p>
+}
+<!-- Show-->
+<br>
+
+@foreach(var i in @ViewBag.someCustomer)
+{
+    <p>@i.Customer_Name joined the store. (@i.TimePast())</p> 
+}

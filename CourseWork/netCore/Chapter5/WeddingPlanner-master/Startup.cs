@@ -4,46 +4,34 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
-using WeddingPlanning.Models;
+using WeddingPlanner.Models;
 using MySQL.Data.EntityFrameworkCore.Extensions;
 using Microsoft.EntityFrameworkCore;
 
-namespace WeddingPlanning
+namespace WeddingPlanner
 {
-    
     public class Startup
     {
-        public IConfiguration Configuration { get; private set; }
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
             services.AddMvc();
             services.AddSession();
-            services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
-            services.AddDbContext<MasterContext>(options => options.UseNpgsql(Configuration["DBInfo:ConnectionString"]));
+            //services.Configure<MySqlOptions>(Configuration.GetSection("DBInfo"));
+            services.AddDbContext<WeddingPlannerContext>(options => options.UseNpgsql(Configuration["DBInfo:ConnectionString"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole();
-            env.EnvironmentName = EnvironmentName.Production;
-            if(env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/error");
-            }
-            
+            app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
             app.UseSession();
             app.UseMvc();
         }
 
-        
+        public IConfiguration Configuration { get; private set; }
  
         public Startup(IHostingEnvironment env)
         {
